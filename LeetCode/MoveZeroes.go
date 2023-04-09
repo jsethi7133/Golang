@@ -1,16 +1,12 @@
 func moveZeroes(nums []int)  {
-    var res []int
+    lastNonZeroPos:=0
     for i:=0;i<len(nums);i++{
-        if(nums[i]!=0){
-            res=append(res,nums[i])
+        if nums[i]!=0{
+            nums[lastNonZeroPos]=nums[i]
+            lastNonZeroPos+=1
         }
     }
-
-    for j:=0;j<len(nums)-len(res)+1;j++{
-        res=append(res,0)
-    }
-
-    for k:=0;k<len(nums);k++{
-        nums[k]=res[k]
+    for i:=lastNonZeroPos;i<len(nums);i++{
+        nums[i]=0
     }
 }
